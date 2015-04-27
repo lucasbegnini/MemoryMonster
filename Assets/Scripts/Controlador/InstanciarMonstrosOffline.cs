@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class InstanciarMonstros : MonoBehaviour {
+public class InstanciarMonstrosOffline : MonoBehaviour {
 
 	public GameObject[] monsters;
 	public Vector3 [] posicoes;
