@@ -11,15 +11,21 @@ public class InstanciarMonstrosOnline : MonoBehaviour {
 
 	void OnJoinedRoom()
 	{
-		instanciarMonstros ();
+		if (PhotonNetwork.playerList.Length == 1) {
+			instanciarMonstros ();
+		}
 	}
 
 	void instanciarMonstros()
 	{
 		for (int i = 0; i < posicoes.Length; i++) {
 			SelectPosicao();
-			PhotonNetwork.Instantiate(monsters[i].name,posicoes[posicaoEscolhida],monsters[i].transform.rotation,0);
-		//	GameObject.Instantiate(monsters[i],posicoes[posicaoEscolhida],monsters[i].transform.rotation);
+			GameObject monster = PhotonNetwork.Instantiate(monsters[i].name,posicoes[posicaoEscolhida],monsters[i].transform.rotation,0);
+			VirarCarta _viracarta = monster.GetComponent<VirarCarta>();
+			_viracarta.enabled = true;
+			IdMonstro _idMonstro = monster.GetComponent<IdMonstro>();
+			_idMonstro.enabled = true;
+			//	GameObject.Instantiate(monsters[i],posicoes[posicaoEscolhida],monsters[i].transform.rotation);
 		
 		}
 	}
@@ -33,5 +39,10 @@ public class InstanciarMonstrosOnline : MonoBehaviour {
 		} else {
 			SelectPosicao();
 		}
+	}
+
+	void Start()
+	{
+
 	}
 }

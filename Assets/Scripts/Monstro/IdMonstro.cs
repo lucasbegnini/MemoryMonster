@@ -8,7 +8,7 @@ public class IdMonstro : MonoBehaviour {
 	private int idPlayer;
 
 	void Start()
-	{ _players = GameObject.FindGameObjectsWithTag ("Player");	}
+	{	}
 
 	void OnMouseDown()
 	{
@@ -21,6 +21,7 @@ public class IdMonstro : MonoBehaviour {
 
 	void setIdPlayer()
 	{
+		_players = GameObject.FindGameObjectsWithTag ("Player");
 		idPlayer = GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnedBase>().getVez();
 	}
 

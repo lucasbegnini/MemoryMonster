@@ -9,7 +9,7 @@ public class VirarCarta : MonoBehaviour {
 	void Start()
 	{
 		rotation = new Vector3 (0, 0, 0);
-		_players = GameObject.FindGameObjectsWithTag ("Player");
+	
 	}
 	void OnMouseDown()
 	{
@@ -23,6 +23,7 @@ public class VirarCarta : MonoBehaviour {
 
 	void setIdPlayer()
 	{
+		_players = GameObject.FindGameObjectsWithTag ("Player");
 		idPlayer = GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnedBase>().getVez();
 	}
 
