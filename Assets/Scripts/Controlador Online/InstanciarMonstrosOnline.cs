@@ -21,9 +21,9 @@ public class InstanciarMonstrosOnline : MonoBehaviour {
 		for (int i = 0; i < posicoes.Length; i++) {
 			SelectPosicao();
 			GameObject monster = PhotonNetwork.Instantiate(monsters[i].name,posicoes[posicaoEscolhida],monsters[i].transform.rotation,0);
-			VirarCarta _viracarta = monster.GetComponent<VirarCarta>();
+			VirarCartaOnline _viracarta = monster.GetComponent<VirarCartaOnline>();
 			_viracarta.enabled = true;
-			IdMonstro _idMonstro = monster.GetComponent<IdMonstro>();
+			IdMonstroOnline _idMonstro = monster.GetComponent<IdMonstroOnline>();
 			_idMonstro.enabled = true;
 			//	GameObject.Instantiate(monsters[i],posicoes[posicaoEscolhida],monsters[i].transform.rotation);
 		

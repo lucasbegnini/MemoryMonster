@@ -14,17 +14,22 @@ public class VirarCarta : MonoBehaviour {
 	void OnMouseDown()
 	{
 		setIdPlayer ();
-		if(_players[idPlayer].GetComponent<PossoJogar>().getPossoJogar())
-		{
-		gameObject.RotateTo (rotation, 1.0f, 0.0f);
-			gameObject.GetComponent<BoxCollider>().enabled = false;
-		}
+		Vira ();
 	}
 
 	void setIdPlayer()
 	{
 		_players = GameObject.FindGameObjectsWithTag ("Player");
 		idPlayer = GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnedBase>().getVez();
+	}
+
+	void Vira()
+	{
+		if(_players[idPlayer].GetComponent<PossoJogar>().getPossoJogar())
+		{
+			gameObject.RotateTo (rotation, 1.0f, 0.0f);
+			gameObject.GetComponent<BoxCollider>().enabled = false;
+		}
 	}
 
 }

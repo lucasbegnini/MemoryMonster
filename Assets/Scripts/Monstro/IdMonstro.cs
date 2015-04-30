@@ -22,7 +22,7 @@ public class IdMonstro : MonoBehaviour {
 	void setIdPlayer()
 	{
 		_players = GameObject.FindGameObjectsWithTag ("Player");
-		idPlayer = GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnedBase>().getVez();
+		GameObject.FindGameObjectWithTag ("GameController").GetComponent<TurnedBase> ().getVez ();
 	}
 
 

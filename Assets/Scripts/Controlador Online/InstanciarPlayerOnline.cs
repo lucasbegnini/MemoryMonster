@@ -10,13 +10,12 @@ public class InstanciarPlayerOnline : MonoBehaviour {
 	GameObject _player = PhotonNetwork.Instantiate (Player.name, Player.transform.position, Player.transform.rotation, 0);
 		Score _score = _player.GetComponent<Score> ();
 		_score.enabled = true;
-		CheckEscolhas _check = _player.GetComponent<CheckEscolhas> ();
+		CheckEscolhasOnline _check = _player.GetComponent<CheckEscolhasOnline> ();
 		_check.enabled = true;
-		PossoJogar _posso = _player.GetComponent<PossoJogar> ();
+		PossoJogarOnline _posso = _player.GetComponent<PossoJogarOnline> ();
 		_posso.enabled = true;
 		EscolherCartas _escolha = _player.GetComponent<EscolherCartas> ();
 		_escolha.enabled = false;
-
 
 
 		if(PhotonNetwork.playerList.Length == 2)
@@ -29,11 +28,8 @@ public class InstanciarPlayerOnline : MonoBehaviour {
 	IEnumerator espera()
 	{
 		yield return new WaitForSeconds (2.0f);
-		GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnedBase> ().enabled = true;
+		GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnBasedOnline> ().enabled = true;
 
 	}
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
