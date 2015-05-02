@@ -6,7 +6,8 @@ public class VirarCartaOnline : MonoBehaviour {
 	private Vector3 rotation;
 	private GameObject [] _players;
 	private int idPlayer;
-	private int PhotonIdPlayer;
+	private int idPlayerPhoton;
+
 
 	private PhotonView myPhotonView;
 
@@ -19,29 +20,26 @@ public class VirarCartaOnline : MonoBehaviour {
 	void OnMouseDown()
 	{
 		myPhotonView = gameObject.GetComponent<PhotonView>();
-		this.myPhotonView.RPC ("Vira", PhotonTargets.All);
+		_players = GameObject.FindGameObjectsWithTag ("Player");
+		idPlayer = GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnBasedOnline>().getVez();
+		idPlayerPhoton = _players [0].GetComponent<PhotonView>().ownerId;
+
+
+		//Debug.Log (idPlayer);
+
+		if ( idPlayer.Equals(idPlayerPhoton) ) {
+			this.myPhotonView.RPC ("Vira", PhotonTargets.All);
+		} else {
+			Debug.Log("Nao e sua vez");
+		}
 	}
 
 
 	[RPC]
 	void Vira()
 	{
-	//	Debug.Log ("Virou o monstro :" + gameObject.name);
-		_players = GameObject.FindGameObjectsWithTag ("Player");
-		idPlayer = GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnBasedOnline>().getVez();
-		PhotonIdPlayer = PhotonNetwork.player.ID;
-		PhotonIdPlayer = PhotonIdPlayer - 1;
-		Debug.Log ("PhotonId: " + PhotonIdPlayer);
-		Debug.Log ("Id: " + idPlayer);
-
-		if ( ( _players [idPlayer].GetComponent<PossoJogarOnline> ().getPossoJogar () ) && (idPlayer == PhotonIdPlayer) )  
-		{
 			gameObject.RotateTo (rotation, 1.0f, 0.0f);
 			gameObject.GetComponent<BoxCollider> ().enabled = false;
-
-		} else {
-			//Debug.Log("Nao e sua vez");
-		}
 	}
 
 

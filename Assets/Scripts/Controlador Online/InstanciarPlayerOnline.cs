@@ -16,6 +16,8 @@ public class InstanciarPlayerOnline : MonoBehaviour {
 		_posso.enabled = true;
 		EscolherCartas _escolha = _player.GetComponent<EscolherCartas> ();
 		_escolha.enabled = false;
+		WhoIsIt _is = _player.GetComponent<WhoIsIt> ();
+		_is.enabled = true;
 
 
 		if(PhotonNetwork.playerList.Length == 2)
@@ -23,6 +25,9 @@ public class InstanciarPlayerOnline : MonoBehaviour {
 			StartCoroutine(espera());
 			//GameObject.FindGameObjectWithTag("GameController").GetComponent<ShwScore> ().enabled = true;
 		}
+
+		//Debug.Log (_player.GetComponent<WhoIsIt> ().WhoIs ());
+
 	
 	}
 	IEnumerator espera()

@@ -12,14 +12,23 @@ public class TurnBasedOnline : MonoBehaviour {
 	{
 		cont = 0;
 		Vez = 0;
+	
 	}
 
 	void OnEnable () {
 		StartCoroutine (VirarCartas ());
+		cont++;
 
 		myPhotonView = gameObject.GetComponent<PhotonView>();
-		
-		this.myPhotonView.RPC ("habilitarPraJogo", PhotonTargets.All,0 );
+		if (cont == 1) {
+			this.myPhotonView.RPC ("habilitarPraJogo", PhotonTargets.All,(cont-1));
+
+		}
+
+		if (cont == 2) {
+			this.myPhotonView.RPC ("habilitarPraJogo", PhotonTargets.All,(cont-1));
+			cont = 0;
+		}
 	}
 
 	[RPC]
@@ -28,16 +37,16 @@ public class TurnBasedOnline : MonoBehaviour {
 		_players = GameObject.FindGameObjectsWithTag ("Player");
 		//		Debug.Log (cont);
 		if (player == 0) {
-			Debug.Log("Vez do Player1");
-			Vez = 0;
+			Debug.Log("Vez do Player 1");
+			Vez = 1;
 			_players[1].GetComponent<PossoJogarOnline> ().setOFF();
 			_players[0].GetComponent<PossoJogarOnline> ().setON();
 			
 		}
 		
 		if (player == 1) {
-			Debug.Log("Vez do Player2");
-			Vez = 1;
+			Debug.Log("Vez do Player 2");
+			Vez = 2;
 			_players[0].GetComponent<PossoJogarOnline> ().setOFF();
 			_players[1].GetComponent<PossoJogarOnline> ().setON();
 		}

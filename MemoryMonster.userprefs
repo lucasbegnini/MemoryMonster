@@ -2,13 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controlador Online\InstanciarPlayerOnline.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\Online\WhoIsIt.cs" Line="40" Column="30" />
-      <File FileName="Assets\Scripts\Monstro\Online\VirarCartaOnline.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Monstro\Online\IdMonstroOnline.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Controlador Online\InstanciarPlayerOnline.cs" Line="31" Column="1" />
-      <File FileName="Assets\Scripts\Player\EscolherCartas.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\Online\CheckEscolhasOnline.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Controlador Online\TurnBasedOnline.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Monstro\Online\IdMonstroOnline.cs" Line="25" Column="23" />
+      <File FileName="Assets\Scripts\Player\Online\WhoIsIt.cs" Line="14" Column="3" />
+      <File FileName="Assets\Scripts\Monstro\Online\VirarCartaOnline.cs" Line="29" Column="3" />
+      <File FileName="Assets\Scripts\Controlador Online\InstanciarMonstrosOnline.cs" Line="36" Column="23" />
+      <File FileName="Assets\Scripts\Controlador Online\InstanciarPlayerOnline.cs" Line="36" Column="1" />
+      <File FileName="Assets\Scripts\Controlador Online\TurnBasedOnline.cs" Line="37" Column="59" />
+      <File FileName="Assets\Scripts\Player\EscolherCartas.cs" Line="34" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

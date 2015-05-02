@@ -6,17 +6,23 @@ public class IdMonstroOnline : MonoBehaviour {
 	public int ID;
 	private GameObject [] _players;
 	private int idPlayer;
+	private int idPlayerPhoton;
 	
 	private PhotonView myPhotonView;
 
 
 	void OnMouseDown()
 	{
-		myPhotonView = gameObject.GetComponent<PhotonView>();
+
 		setIdPlayer ();
-		if(( _players [idPlayer].GetComponent<PossoJogarOnline> ().getPossoJogar () ) && (idPlayer.Equals(PhotonNetwork.player.ID-1) ) )
+
+		myPhotonView = gameObject.GetComponent<PhotonView>();
+		_players = GameObject.FindGameObjectsWithTag ("Player");
+		idPlayer = GameObject.FindGameObjectWithTag("GameController").GetComponent<TurnBasedOnline>().getVez();
+		idPlayerPhoton = _players [0].GetComponent<PhotonView>().ownerId;
+		if(idPlayer.Equals(idPlayerPhoton) )
 		{
-			_players[idPlayer].GetComponent<EscolherCartas> ().MonstroEscolhido (ID);
+			_players[idPlayer-1].GetComponent<EscolherCartas> ().MonstroEscolhido (ID);
 		}
 	}
 	

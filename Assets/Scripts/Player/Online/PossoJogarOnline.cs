@@ -9,12 +9,14 @@ public class PossoJogarOnline : MonoBehaviour {
 
 	public void setON()
 	{
+		_PossoJogar = true;
 		myPhotonView = gameObject.GetComponent<PhotonView>();
 		this.myPhotonView.RPC ("setarONRPC", PhotonTargets.All);
 	}
 
 	public void setOFF()
 	{
+		_PossoJogar = false;
 		myPhotonView = gameObject.GetComponent<PhotonView>();
 		this.myPhotonView.RPC ("setarOFFRPC", PhotonTargets.All);
 	}
@@ -23,14 +25,12 @@ public class PossoJogarOnline : MonoBehaviour {
 	void setarONRPC()
 	{
 		gameObject.GetComponent<EscolherCartas>().enabled = true;
-		_PossoJogar = true;
 	}
 
 	[RPC]
 	void setarOFFRPC()
 	{
 		gameObject.GetComponent<EscolherCartas>().enabled = false;
-		_PossoJogar = false;
 	}
 	public bool getPossoJogar()
 	{return _PossoJogar;	}

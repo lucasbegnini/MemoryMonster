@@ -40,9 +40,5 @@ public class InstanciarMonstrosOnline : MonoBehaviour {
 			SelectPosicao();
 		}
 	}
-
-	void Start()
-	{
-
-	}
+	
 }
